@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>バナー制作 費用のご提案｜DADA WORKS</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #FFFFFF;
+    --bg2:      #F6F6F6;
+    --bg3:      #F0F0F0;
+    --text:     #111111;
+    --text2:    #888888;
+    --text3:    #BBBBBB;
+    --accent:   #433FFF;
+    --accent2:  #6B68FF;
+    --accent3:  rgba(67,63,255,0.07);
+    --black:    #111111;
+    --border:   #E3E3E3;
+    --border2:  rgba(67,63,255,0.2);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    padding: 56px 64px 72px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: 'BANNER';
+    position: absolute;
+    right: -16px;
+    bottom: -24px;
+    font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    font-size: 160px;
+    font-weight: 800;
+    color: rgba(67,63,255,0.04);
+    letter-spacing: -6px;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+
+  .header-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.1s;
+  }
+
+  .header-title {
+    font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    color: var(--black);
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.25s;
+  }
+
+  .header-title span { color: var(--accent); }
+
+  .header-sub {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text2);
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.4s;
+  }
+
+  /* ─── SECTION ─── */
+  .section {
+    padding: 72px 64px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background: var(--border2);
+  }
+
+  /* ─── SINGLE PRICE ─── */
+  .price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .price-item {
+    background: var(--bg);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+
+  .price-item:hover { background: var(--bg2); }
+
+  .price-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s;
+  }
+
+  .price-item:hover::before { transform: scaleX(1); }
+
+  .price-type {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text2);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .price-num {
+    font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    font-size: clamp(40px, 5vw, 54px);
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .price-unit {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text2);
+    margin-bottom: 20px;
+  }
+
+  .price-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text2);
+    line-height: 1.8;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .price-note {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: var(--accent3);
+    border-left: 2px solid var(--accent);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text2);
+    line-height: 1.9;
+  }
+
+  /* ─── PLAN CARDS ─── */
+  .plan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .plan-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 36px 28px;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  }
+
+  .plan-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+    border-color: var(--accent);
+  }
+
+  .plan-card.featured {
+    background: var(--bg2);
+    border: 2px solid var(--accent);
+    padding: 44px 32px;
+    margin: -8px 0;
+    box-shadow: 0 16px 48px rgba(67,63,255,0.15), 0 4px 16px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 1;
+  }
+
+  .plan-card.featured:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 64px rgba(67,63,255,0.2), 0 8px 24px rgba(0,0,0,0.1);
+  }
+
+  .plan-rec {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--accent2);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .plan-name {
+    font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--text2);
+    margin-bottom: 12px;
+  }
+
+  .plan-price {
+    font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: -1.5px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .plan-unit {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text2);
+    margin-bottom: 28px;
+  }
+
+  .plan-line {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 24px;
+  }
+
+  .plan-pt-block {
+    margin-bottom: 24px;
+  }
+
+  .plan-pt-total {
+    font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .plan-pt-total span {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0;
+    margin-left: 2px;
+  }
+
+  .plan-pt-breakdown {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .plan-pt-base,
+  .plan-pt-bonus {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+  }
+
+  .plan-pt-base {
+    background: rgba(67,63,255,0.08);
+    color: var(--accent);
+    border: 1px solid rgba(67,63,255,0.2);
+  }
+
+  .plan-pt-plus {
+    font-size: 11px;
+    color: var(--text3);
+    font-weight: 300;
+  }
+
+  .plan-pt-bonus {
+    background: rgba(0,0,0,0.04);
+    color: var(--text2);
+    border: 1px solid var(--border);
+  }
+
+  .plan-cases {
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text2);
+    line-height: 1.8;
+  }
+
+  .plan-cases strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 2px;
+  }
+
+  /* ─── PT TABLE ─── */
+  .pt-head {
+    display: grid;
+    grid-template-columns: 1fr 100px 120px;
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--accent);
+  }
+
+  .pt-head span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    font-weight: 300;
+  }
+
+  .pt-row {
+    display: grid;
+    grid-template-columns: 1fr 100px 120px;
+    align-items: center;
+    padding: 24px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-top: none;
+    transition: background 0.2s;
+  }
+
+  .pt-row:first-of-type { border-top: none; }
+  .pt-row:hover { background: var(--bg2); }
+
+  .pt-name { font-size: 15px; font-weight: 500; color: var(--black); }
+
+  .pt-pt {
+    font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+
+  .pt-price {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--text2);
+    text-align: right;
+  }
+
+  /* ─── RULES ─── */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 32px;
+  }
+
+  .rule {
+    background: var(--bg);
+    padding: 28px;
+    transition: background 0.2s;
+  }
+
+  .rule:hover { background: var(--bg2); }
+
+  .rule-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .rule-title { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+  .rule-body { font-size: 12px; font-weight: 300; color: var(--text2); line-height: 1.9; }
+
+  /* ─── FLOW ─── */
+  .flow {
+    display: flex;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 32px;
+    overflow-x: auto;
+  }
+
+  .flow-step {
+    flex: 1;
+    min-width: 130px;
+    background: var(--bg);
+    padding: 24px 16px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+
+  .flow-step:hover { background: var(--bg2); }
+  .flow-step.on { background: var(--accent); }
+
+  .flow-n {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text3);
+    margin-bottom: 8px;
+  }
+
+  .flow-step.on .flow-n { color: rgba(255,255,255,0.5); }
+
+  .flow-label { font-size: 12px; font-weight: 500; color: var(--black); line-height: 1.4; }
+  .flow-step.on .flow-label { color: white; font-weight: 700; }
+
+  /* ─── SUMMARY ─── */
+  .summary {
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .summary-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  .summary-row:last-child { border-bottom: none; }
+  .summary-row:hover { background: var(--bg2); }
+
+  .s-label {
+    padding: 18px 28px;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text2);
+    border-right: 1px solid var(--border);
+  }
+
+  .s-val {
+    padding: 18px 28px;
+    font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--black);
+    letter-spacing: -0.3px;
+  }
+
+  .s-val.accent { color: var(--accent); }
+
+  .s-tax {
+    padding: 12px 28px;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text3);
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 40px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--black);
+  }
+
+  .footer-brand {
+    font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 2px;
+  }
+
+  /* ─── ANIMATION ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 720px) {
+    header, .section, footer { padding-left: 24px; padding-right: 24px; }
+    .price-grid, .plan-grid, .rules-grid { grid-template-columns: 1fr; }
+    .pt-head, .pt-row { grid-template-columns: 1fr 80px 100px; padding: 18px 16px; }
+    .flow { flex-direction: column; gap: 1px; }
+    .flow-step { border-bottom: 1px solid var(--border); }
+    .flow-step:last-child { border-bottom: none; }
+    footer { flex-direction: column; gap: 10px; text-align: center; }
+    header::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-tag">DADA WORKS — BANNER DESIGN SERVICE</div>
+  <h1 class="header-title">バナー制作<br><span>費用のご提案</span></h1>
+  <p class="header-sub">単発制作 / 月額パートナープラン &nbsp;·&nbsp; 2026年3月</p>
+</header>
+
+<div class="section">
+  <div class="section-label">01 &nbsp; 単発制作 料金表</div>
+  <div class="price-grid">
+    <div class="price-item">
+      <div class="price-type">新規デザイン</div>
+      <div class="price-num">¥12,000</div>
+      <div class="price-unit">/ 点（税抜）</div>
+      <div class="price-desc">ゼロからのバナー制作。コンセプト立案〜仕上げまで一貫対応します。</div>
+    </div>
+    <div class="price-item">
+      <div class="price-type">リサイズ</div>
+      <div class="price-num">¥5,000</div>
+      <div class="price-unit">/ 点（税抜）</div>
+      <div class="price-desc">既存デザインのサイズ展開。各媒体に最適化した別サイズ制作です。</div>
+    </div>
+  </div>
+  <div class="price-note">
+    ※ 特急対応（翌営業日以内）は別途特急料金が発生します。&nbsp;&nbsp;
+    ※ 修正回数は制限なし（大幅な仕様変更・方向変更を除く）
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">02 &nbsp; 月額パートナープラン</div>
+  <div class="plan-grid">
+    <div class="plan-card">
+      <div class="plan-name">LIGHT</div>
+      <div class="plan-price">¥100,000</div>
+      <div class="plan-unit">/ 月（税抜）</div>
+      <div class="plan-line"></div>
+      <div class="plan-pt-block">
+        <div class="plan-pt-total">58<span>pt</span></div>
+        <div class="plan-pt-breakdown">
+          <span class="plan-pt-base">基本 50pt</span>
+          <span class="plan-pt-plus">＋</span>
+          <span class="plan-pt-bonus">ボーナス +8pt</span>
+        </div>
+      </div>
+      <div class="plan-cases">
+        <strong>約3案件 / 月</strong>
+        新規1点＋リサイズ4点を1案件として計算
+      </div>
+    </div>
+    <div class="plan-card featured">
+      <span class="plan-rec">RECOMMENDED</span>
+      <div class="plan-name">STANDARD</div>
+      <div class="plan-price">¥200,000</div>
+      <div class="plan-unit">/ 月（税抜）</div>
+      <div class="plan-line"></div>
+      <div class="plan-pt-block">
+        <div class="plan-pt-total">120<span>pt</span></div>
+        <div class="plan-pt-breakdown">
+          <span class="plan-pt-base">基本 100pt</span>
+          <span class="plan-pt-plus">＋</span>
+          <span class="plan-pt-bonus">ボーナス +20pt</span>
+        </div>
+      </div>
+      <div class="plan-cases">
+        <strong>約7案件 / 月</strong>
+        新規1点＋リサイズ4点を1案件として計算
+      </div>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">HEAVY</div>
+      <div class="plan-price">¥300,000</div>
+      <div class="plan-unit">/ 月（税抜）</div>
+      <div class="plan-line"></div>
+      <div class="plan-pt-block">
+        <div class="plan-pt-total">195<span>pt</span></div>
+        <div class="plan-pt-breakdown">
+          <span class="plan-pt-base">基本 150pt</span>
+          <span class="plan-pt-plus">＋</span>
+          <span class="plan-pt-bonus">ボーナス +45pt</span>
+        </div>
+      </div>
+      <div class="plan-cases">
+        <strong>約11案件 / 月</strong>
+        新規1点＋リサイズ4点を1案件として計算
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">03 &nbsp; ポイント制の仕組み</div>
+  <div class="pt-head">
+    <span>種別</span>
+    <span>消費pt</span>
+    <span style="text-align:right">単価（税抜）</span>
+  </div>
+  <div class="pt-row">
+    <div class="pt-name">新規デザイン</div>
+    <div class="pt-pt">6pt</div>
+    <div class="pt-price">¥12,000</div>
+  </div>
+  <div class="pt-row">
+    <div class="pt-name">リサイズ</div>
+    <div class="pt-pt">3pt</div>
+    <div class="pt-price">¥5,000</div>
+  </div>
+  <div class="rules-grid">
+    <div class="rule">
+      <span class="rule-tag">ROLLOVER</span>
+      <div class="rule-title">翌々月まで繰越可能</div>
+      <div class="rule-body">未使用ポイントは翌々月末まで持ち越せます。3ヶ月目に失効します。</div>
+    </div>
+    <div class="rule">
+      <span class="rule-tag">OVERAGE</span>
+      <div class="rule-title">都度追加購入</div>
+      <div class="rule-body">月間ポイントを超過した場合は、その都度ポイントを追加購入いただけます。</div>
+    </div>
+    <div class="rule">
+      <span class="rule-tag">PRIORITY</span>
+      <div class="rule-title">優先対応</div>
+      <div class="rule-body">月額契約の方は、単発依頼より優先的にご対応します。</div>
+    </div>
+  </div>
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-n">01</div>
+      <div class="flow-label">プラン選択・契約</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-n">02</div>
+      <div class="flow-label">毎月ポイント付与</div>
+    </div>
+    <div class="flow-step on">
+      <div class="flow-n">03</div>
+      <div class="flow-label">制作依頼（pt消費）</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-n">04</div>
+      <div class="flow-label">納品・確認</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-n">05</div>
+      <div class="flow-label">翌月リセット</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">04 &nbsp; 料金サマリー</div>
+  <div class="summary">
+    <div class="summary-row">
+      <div class="s-label">新規デザイン</div>
+      <div class="s-val">¥12,000 / 点</div>
+    </div>
+    <div class="summary-row">
+      <div class="s-label">リサイズ</div>
+      <div class="s-val">¥5,000 / 点</div>
+    </div>
+    <div class="summary-row">
+      <div class="s-label">月額 LIGHT</div>
+      <div class="s-val">¥100,000 / 月 <small style="font-size:13px;font-weight:300;color:var(--text2)">（58pt）</small></div>
+    </div>
+    <div class="summary-row">
+      <div class="s-label">月額 STANDARD</div>
+      <div class="s-val accent">¥200,000 / 月 <small style="font-size:13px;font-weight:300;color:var(--text2)">（120pt）</small></div>
+    </div>
+    <div class="summary-row">
+      <div class="s-label">月額 HEAVY</div>
+      <div class="s-val">¥300,000 / 月 <small style="font-size:13px;font-weight:300;color:var(--text2)">（195pt）</small></div>
+    </div>
+    <div class="summary-row">
+      <div class="s-tax">すべて税抜表示</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">DADA WORKS</div>
+  <div class="footer-note">dadaworks.co.jp</div>
+</footer>
+
+</body>
+</html>
